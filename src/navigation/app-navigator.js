@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/Home/Home';
 import Weather from '../screens/Weather/Weather';
 import Chat from '../screens/Chat/Chat';
+import NewsStory from '../screens/NewsStory/NewsStory';
 import styles from './style';
 import {NewsIcon} from '../assets/icons/news';
 import {ChatHomeIcon} from '../assets/icons/chat';
@@ -47,6 +48,7 @@ function MyStack() {
   return (
     <Stack.Navigator headerMode="none">
       <Stack.Screen name="Tab" component={MyTab} />
+      <Stack.Screen name="NewsStory" component={NewsStory} />
     </Stack.Navigator>
   );
 }

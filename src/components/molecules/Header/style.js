@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Dimensions} from '../../../style/index';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,6 +13,7 @@ const styles = StyleSheet.create({
   },
   screen_name_text: {
     fontSize: 18,
+    fontWeight: '700',
     textAlign: 'center',
   },
   side_option_view: {

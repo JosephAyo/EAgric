@@ -3,14 +3,21 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './style';
 
 import LeafMenu from '../../../assets/icons/leaf_menu';
-import Harmburger from '../../../assets/icons/hamburger';
+import HarmburgerIcon from '../../../assets/icons/hamburger';
+import {BackIcon} from '../../../assets/icons/back';
 const Header = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.side_option_view}>
-        <TouchableOpacity>
-          <Harmburger />
-        </TouchableOpacity>
+        {props.isBack ? (
+          <TouchableOpacity onPress={() => props.navigation.goBack()}>
+            <BackIcon />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity>
+            <HarmburgerIcon />
+          </TouchableOpacity>
+        )}
       </View>
       <View style={styles.screen_name_view}>
         <Text style={styles.screen_name_text}>{props.screenName}</Text>

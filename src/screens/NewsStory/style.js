@@ -12,8 +12,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  contentContainer: {
-    paddingBottom: 180,
+  main_article_webview: {
+    width: 300,
+    resizeMode: 'cover',
   },
 });
 
