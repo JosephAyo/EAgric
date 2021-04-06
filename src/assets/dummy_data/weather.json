@@ -1,0 +1,224 @@
+[
+    {
+        "coord": {
+            "lon": 5.1931,
+            "lat": 7.2526
+        },
+        "weather": [
+            {
+                "id": 801,
+                "main": "Clouds",
+                "description": "few clouds",
+                "icon": "02d"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 39.25,
+            "feels_like": 40.55,
+            "temp_min": 39.25,
+            "temp_max": 39.25,
+            "pressure": 1007,
+            "humidity": 27,
+            "sea_level": 1007,
+            "grnd_level": 969
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 0.15,
+            "deg": 265,
+            "gust": 3.89
+        },
+        "clouds": {
+            "all": 24
+        },
+        "dt": 1617715533,
+        "sys": {
+            "country": "NG",
+            "sunrise": 1617687282,
+            "sunset": 1617731287
+        },
+        "timezone": 3600,
+        "id": 2350841,
+        "name": "Akure",
+        "cod": 200
+    },
+    {
+        "coord": {
+            "lon": 4.5667,
+            "lat": 7.7667
+        },
+        "weather": [
+            {
+                "id": 801,
+                "main": "Clouds",
+                "description": "few clouds",
+                "icon": "02d"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 39.29,
+            "feels_like": 40.26,
+            "temp_min": 39.29,
+            "temp_max": 39.29,
+            "pressure": 1007,
+            "humidity": 26,
+            "sea_level": 1007,
+            "grnd_level": 972
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 0.9,
+            "deg": 255,
+            "gust": 3.81
+        },
+        "clouds": {
+            "all": 12
+        },
+        "dt": 1617715555,
+        "sys": {
+            "country": "NG",
+            "sunrise": 1617687418,
+            "sunset": 1617731452
+        },
+        "timezone": 3600,
+        "id": 2325590,
+        "name": "Osogbo",
+        "cod": 200
+    },
+    {
+        "coord": {
+            "lon": 4.8775,
+            "lat": 6.7457
+        },
+        "weather": [
+            {
+                "id": 500,
+                "main": "Rain",
+                "description": "light rain",
+                "icon": "10d"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 33.48,
+            "feels_like": 37.91,
+            "temp_min": 33.48,
+            "temp_max": 33.48,
+            "pressure": 1008,
+            "humidity": 52,
+            "sea_level": 1008,
+            "grnd_level": 999
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 3.42,
+            "deg": 220,
+            "gust": 2.97
+        },
+        "rain": {
+            "1h": 0.19
+        },
+        "clouds": {
+            "all": 92
+        },
+        "dt": 1617715595,
+        "sys": {
+            "country": "NG",
+            "sunrise": 1617687372,
+            "sunset": 1617731348
+        },
+        "timezone": 3600,
+        "id": 2325821,
+        "name": "Ore",
+        "cod": 200
+    },
+    {
+        "coord": {
+            "lon": 3.7268,
+            "lat": 6.9316
+        },
+        "weather": [
+            {
+                "id": 803,
+                "main": "Clouds",
+                "description": "broken clouds",
+                "icon": "04d"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 33,
+            "feels_like": 40.25,
+            "temp_min": 33,
+            "temp_max": 33,
+            "pressure": 1010,
+            "humidity": 62
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 1.54,
+            "deg": 190
+        },
+        "clouds": {
+            "all": 75
+        },
+        "dt": 1617715620,
+        "sys": {
+            "type": 1,
+            "id": 1185,
+            "country": "NG",
+            "sunrise": 1617687643,
+            "sunset": 1617731630
+        },
+        "timezone": 3600,
+        "id": 2327546,
+        "name": "Ilara",
+        "cod": 200
+    },
+    {
+        "coord": {
+            "lon": 5.2583,
+            "lat": 7.1371
+        },
+        "weather": [
+            {
+                "id": 802,
+                "main": "Clouds",
+                "description": "scattered clouds",
+                "icon": "03d"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 39.57,
+            "feels_like": 41.11,
+            "temp_min": 39.57,
+            "temp_max": 39.57,
+            "pressure": 1007,
+            "humidity": 27,
+            "sea_level": 1007,
+            "grnd_level": 975
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 0.6,
+            "deg": 240,
+            "gust": 4.04
+        },
+        "clouds": {
+            "all": 38
+        },
+        "dt": 1617715654,
+        "sys": {
+            "country": "NG",
+            "sunrise": 1617687270,
+            "sunset": 1617731268
+        },
+        "timezone": 3600,
+        "id": 2326168,
+        "name": "Ilesha",
+        "cod": 200
+    }
+]

@@ -21,7 +21,7 @@ const Home = (props) => {
           renderItem={(item) => (
             <StoryPreview
               data={item}
-              fullReadHandler={(url) => fullReadHandler(url)}
+              onReadPress={(url) => fullReadHandler(url)}
             />
           )}
           keyExtractor={(item, index) => index}

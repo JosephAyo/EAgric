@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  contentContainer: {
+    paddingBottom: 90,
+  },
 });
 
 export default styles;

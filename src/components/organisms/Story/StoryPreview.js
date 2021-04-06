@@ -4,7 +4,7 @@ import styles from './style';
 
 import ViewMore from '../../../assets/icons/view_more';
 
-const StoryPreview = ({data, fullReadHandler}) => {
+const StoryPreview = ({data, onReadPress}) => {
   return (
     <View style={styles.container}>
       <Image
@@ -19,7 +19,7 @@ const StoryPreview = ({data, fullReadHandler}) => {
         <Text style={styles.article_title}>{data.item.title}</Text>
       </View>
       <TouchableOpacity
-        onPress={() => fullReadHandler(data.item.url)}
+        onPress={() => onReadPress(data.item.url)}
         activeOpacity={0.6}>
         <ViewMore />
       </TouchableOpacity>
