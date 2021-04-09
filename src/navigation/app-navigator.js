@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/Home/Home';
 import Weather from '../screens/Weather/Weather';
 import Chat from '../screens/Chat/Chat';
+import PreChat from '../screens/Chat/PreChat';
 import NewsStory from '../screens/NewsStory/NewsStory';
 import styles from './style';
 import {NewsIcon} from '../assets/icons/news';
@@ -34,7 +35,7 @@ function MyTab() {
       />
       <Tab.Screen
         name="Chat"
-        component={Chat}
+        component={PreChat}
         options={{
           tabBarLabel: 'Chat',
           tabBarIcon: ({color}) => <ChatHomeIcon color={color} size={26} />,
@@ -49,6 +50,7 @@ function MyStack() {
     <Stack.Navigator headerMode="none">
       <Stack.Screen name="Tab" component={MyTab} />
       <Stack.Screen name="NewsStory" component={NewsStory} />
+      <Stack.Screen name="ChatRoom" component={Chat} />
     </Stack.Navigator>
   );
 }
