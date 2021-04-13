@@ -8,7 +8,12 @@ import Loading from '../../components/atoms/Loading/Loading';
 const NewsStory = ({route, navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
-      <Header screenName="STORY" isBack={true} navigation={navigation} />
+      <Header
+        screenName="STORY"
+        isBack={true}
+        navigation={navigation}
+        canRefresh={false}
+      />
       <View style={styles.top_content}>
         <WebView
           style={styles.main_article_webview}

@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import {
-  Text,
   SafeAreaView,
   View,
   TextInput,
-  ScrollView,
   TouchableOpacity,
   KeyboardAvoidingView,
   FlatList,
+  RefreshControl,
 } from 'react-native';
 import styles from './style';
 import {Colors} from '../../style/index';
@@ -23,6 +22,7 @@ const Chat = ({navigation}) => {
   const [state, setState] = useState({
     text: '',
     height: 0,
+    isLoading: false,
   });
   const [inputHeight, setInputHeight] = useState(48);
 
@@ -39,9 +39,21 @@ const Chat = ({navigation}) => {
     }
   };
 
+  const refreshHandler = () => {
+    setState({...state, isLoading: true});
+    setTimeout(() => {
+      setState({...state, isLoading: false});
+    }, 1000);
+  };
   return (
     <SafeAreaView style={styles.container}>
-      <Header screenName="CHAT" isBack={true} navigation={navigation} />
+      <Header
+        screenName="CHAT"
+        isBack={true}
+        navigation={navigation}
+        canRefresh
+        onTriggerRefresh={() => refreshHandler()}
+      />
       <View style={styles.top_content}>
         <FlatList
           data={ChatDummyData}
@@ -52,6 +64,14 @@ const Chat = ({navigation}) => {
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.contentContainer}
+          removeClippedSubviews={false}
+          inverted={true}
+          refreshControl={
+            <RefreshControl
+              refreshing={state.isLoading}
+              onRefresh={() => refreshHandler()}
+            />
+          }
         />
         <KeyboardAvoidingView>
           <View style={[styles.interact_view]}>
