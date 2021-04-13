@@ -25,14 +25,14 @@ const styles = StyleSheet.create({
     maxHeight: Dimensions.HEIGHT * 0.68,
   },
   interact_view: {
-    width: Dimensions.WIDTH * 0.9,
+    width: Dimensions.WIDTH * 0.95,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 10,
+    marginVertical: 4,
   },
   text_input_view: {
-    width: '82%',
+    width: '85%',
     backgroundColor: Colors.DARK_BACKGROUND,
     borderRadius: Dimensions.WIDTH * 0.9 * 0.1,
     paddingHorizontal: 10,
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   send_icon_view: {},
   contentContainer: {
-    paddingBottom: 90,
+    paddingBottom: 20,
   },
 });
 

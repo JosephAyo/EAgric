@@ -12,6 +12,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import Screen from './src/navigation/index';
 import {Colors} from './src/style/index';
+import {StatusBar} from 'react-native';
 const theme = {
   ...DefaultTheme,
   roundness: 2,
@@ -26,6 +27,7 @@ const App = () => {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
+        <StatusBar backgroundColor={Colors.PRIMARY} barStyle="light-content" />
         <Screen />
       </NavigationContainer>
     </PaperProvider>

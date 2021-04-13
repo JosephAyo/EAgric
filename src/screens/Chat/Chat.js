@@ -14,10 +14,11 @@ import {Colors} from '../../style/index';
 
 import Header from '../../components/molecules/Header/Header';
 
-import Preview from '../../components/atoms/Weather/Preview';
 import SendIcon from '../../assets/icons/send_message';
 
-import weatherDummyData from '../../assets/dummy_data/weather.json';
+import ChatDummyData from '../../assets/dummy_data/chat.json';
+import MessageBox from '../../components/atoms/Chat/MessageBox';
+
 const Chat = ({navigation}) => {
   const [state, setState] = useState({
     text: '',
@@ -43,8 +44,10 @@ const Chat = ({navigation}) => {
       <Header screenName="CHAT" isBack={true} navigation={navigation} />
       <View style={styles.top_content}>
         <FlatList
-          data={weatherDummyData}
-          renderItem={(item) => <Preview data={item} />}
+          data={ChatDummyData}
+          renderItem={(item) => (
+            <MessageBox data={item} isSent={item.item.sender_id === '23fdr'} />
+          )}
           keyExtractor={(item, index) => index}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
