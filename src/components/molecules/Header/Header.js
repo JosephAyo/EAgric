@@ -6,6 +6,12 @@ import LeafMenu from '../../../assets/icons/leaf_menu';
 import HarmburgerIcon from '../../../assets/icons/hamburger';
 import {BackIcon} from '../../../assets/icons/back';
 const Header = (props) => {
+  const drawerHandler = () => {
+    const {navigation} = props;
+    if (navigation.openDrawer) {
+      props.navigation.openDrawer();
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.side_option_view}>
@@ -14,7 +20,7 @@ const Header = (props) => {
             <BackIcon />
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => drawerHandler()}>
             <HarmburgerIcon />
           </TouchableOpacity>
         )}

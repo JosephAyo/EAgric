@@ -10,7 +10,7 @@ const PreChat = (props) => {
   };
   return (
     <SafeAreaView style={[styles.container, styles.chat_preamble_container]}>
-      <Header screenName="CHAT" />
+      <Header screenName="CHAT" navigation={props.navigation} />
       <View>
         <View style={styles.chat_preamble}>
           <TouchableOpacity

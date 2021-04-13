@@ -11,6 +11,7 @@
     "adb-reverse": "adb reverse tcp:8081 tcp:8081"
   },
   "dependencies": {
+    "@react-navigation/drawer": "^5.12.5",
     "@react-navigation/material-bottom-tabs": "^5.3.14",
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
@@ -21,11 +22,14 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-paper": "^4.7.2",
+    "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "^3.1.0",
     "react-native-shadow": "^1.2.2",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^8.1.0",
-    "react-native-webview": "^11.3.2"
+    "react-native-webview": "^11.3.2",
+    "react-query": "^3.13.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

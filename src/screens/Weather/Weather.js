@@ -15,7 +15,7 @@ const Weather = (props) => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Header screenName="WEATHER" />
+      <Header screenName="WEATHER" navigation={props.navigation} />
       <View style={styles.top_content}>
         <MainView currentMain={state} />
         <MoreView currentMain={state} />

@@ -6,7 +6,7 @@ import {Colors} from '../../style/index';
 const HomeIcon = ({color, size}) => {
   return (
     <Ionicons
-      name="home-outline"
+      name="md-power-sharp"
       color={color || Colors.SECONDARY}
       size={size}
     />

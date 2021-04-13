@@ -1,24 +1,30 @@
 import React from 'react';
+import {View} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import Home from '../screens/Home/Home';
 import Weather from '../screens/Weather/Weather';
 import Chat from '../screens/Chat/Chat';
 import PreChat from '../screens/Chat/PreChat';
 import NewsStory from '../screens/NewsStory/NewsStory';
+import DrawerContent from './DrawerContent';
 import styles from './style';
 import {NewsIcon} from '../assets/icons/news';
 import {ChatHomeIcon} from '../assets/icons/chat';
 import {WeatherHomeIcon} from '../assets/icons/weather';
+import HomeIcon from '../assets/icons/home';
+import {Colors} from '../style/index';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 function MyTab() {
   return (
     <Tab.Navigator barStyle={styles.barStyle} shifting={true}>
       <Tab.Screen
-        name="Home"
+        name="News"
         component={Home}
         options={{
           tabBarLabel: 'News',
@@ -45,14 +51,50 @@ function MyTab() {
   );
 }
 
-function MyStack() {
+function MyDrawer() {
   return (
-    <Stack.Navigator headerMode="none">
-      <Stack.Screen name="Tab" component={MyTab} />
-      <Stack.Screen name="NewsStory" component={NewsStory} />
-      <Stack.Screen name="ChatRoom" component={Chat} />
-    </Stack.Navigator>
+    <Drawer.Navigator
+      initialRouteName="E-Agric"
+      drawerContent={(props) => DrawerContent(props)}
+      drawerContentOptions={{
+        activeTintColor: Colors.WHITE,
+        activeBackgroundColor: Colors.PRIMARY,
+        itemStyle: styles.drawer_item,
+      }}
+      backBehavior={'history'}
+      drawerStyle={styles.drawer}>
+      <Drawer.Screen
+        name="E-Agric"
+        component={MyTab}
+        options={{
+          drawerIcon: ({focused, size, color}) => (
+            <View style={focused ? styles.focused_drawer_item : null}>
+              <HomeIcon color={color} size={25} />
+            </View>
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="ChatRoom"
+        component={Chat}
+        options={{
+          drawerIcon: ({focused, size, color}) => (
+            <View style={focused ? styles.focused_drawer_item : null}>
+              <ChatHomeIcon color={color} width={25} />
+            </View>
+          ),
+        }}
+      />
+    </Drawer.Navigator>
   );
 }
 
+function MyStack() {
+  return (
+    <Stack.Navigator headerMode="none">
+      <Stack.Screen name="Drawer" component={MyDrawer} />
+      <Stack.Screen name="NewsStory" component={NewsStory} />
+    </Stack.Navigator>
+  );
+}
 export default MyStack;
