@@ -1,2 +1,2 @@
 # EAgric
-Documentation comming soon... ✌✌
+Documentation coming soon... ✌✌
