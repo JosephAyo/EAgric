@@ -21,7 +21,7 @@ const Weather = (props) => {
   const errorToastRef = useRef(null);
 
   const viewCityWeatherHandler = (weather) => {
-    setState(weather);
+    setState({...state, weatherData: weather});
   };
 
   const refreshHandler = () => {

@@ -15,6 +15,7 @@ import {ChatHomeIcon} from '../assets/icons/chat';
 import {WeatherHomeIcon} from '../assets/icons/weather';
 import HomeIcon from '../assets/icons/home';
 import {Colors} from '../style/index';
+import StartUp from '../screens/StartUp/StartUp';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -92,6 +93,7 @@ function MyDrawer() {
 function MyStack() {
   return (
     <Stack.Navigator headerMode="none">
+      <Stack.Screen name="StartUp" component={StartUp} />
       <Stack.Screen name="Drawer" component={MyDrawer} />
       <Stack.Screen name="NewsStory" component={NewsStory} />
     </Stack.Navigator>
