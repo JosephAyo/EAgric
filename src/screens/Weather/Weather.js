@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {SafeAreaView, View, FlatList, RefreshControl} from 'react-native';
 import styles from './style';
 
@@ -8,20 +8,31 @@ import MoreView from '../../components/atoms/Weather/MoreView';
 import Preview from '../../components/atoms/Weather/Preview';
 
 import weatherDummyData from '../../assets/dummy_data/weather.json';
+import ErrorToast from '../../components/atoms/Toasts/ErrorToast';
+import SuccessToast from '../../components/atoms/Toasts/SuccessToast';
+import {showToast} from '../../helpers/toast';
 const Weather = (props) => {
   const [state, setState] = useState({
     weatherData: weatherDummyData[0],
     isLoading: false,
   });
+
+  const successToastRef = useRef(null);
+  const errorToastRef = useRef(null);
+
   const viewCityWeatherHandler = (weather) => {
     setState(weather);
   };
+
   const refreshHandler = () => {
     setState({...state, isLoading: true});
     setTimeout(() => {
       setState({...state, isLoading: false});
+      showToast(successToastRef, 'weather feed refreshed');
+      // showToast(errorToastRef, 'failed');
     }, 1000);
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <Header
@@ -52,6 +63,8 @@ const Weather = (props) => {
           }
           contentContainerStyle={styles.contentContainer}
         />
+        <SuccessToast setRef={(toast) => (successToastRef.current = toast)} />
+        <ErrorToast setRef={(toast) => (errorToastRef.current = toast)} />
       </View>
     </SafeAreaView>
   );

@@ -10,5 +10,6 @@ export const SHADED_TEXT = '#707070';
 export const DARK_BACKGROUND = '#1C2226';
 
 // ACTIONS
-export const SUCCESS = '#3adb76';
+export const SUCCESS = '#12ba50';
+export const ERROR = '#ed0f0f';
 export const ALERT = '#cc4b37';

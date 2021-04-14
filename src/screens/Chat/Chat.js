@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {
   SafeAreaView,
   View,
@@ -18,6 +18,10 @@ import SendIcon from '../../assets/icons/send_message';
 import ChatDummyData from '../../assets/dummy_data/chat.json';
 import MessageBox from '../../components/atoms/Chat/MessageBox';
 
+import ErrorToast from '../../components/atoms/Toasts/ErrorToast';
+import SuccessToast from '../../components/atoms/Toasts/SuccessToast';
+import {showToast} from '../../helpers/toast';
+
 const Chat = ({navigation}) => {
   const [state, setState] = useState({
     text: '',
@@ -25,6 +29,9 @@ const Chat = ({navigation}) => {
     isLoading: false,
   });
   const [inputHeight, setInputHeight] = useState(48);
+
+  const successToastRef = useRef(null);
+  const errorToastRef = useRef(null);
 
   const textChangeHandler = (text) => {
     setState({
@@ -43,6 +50,8 @@ const Chat = ({navigation}) => {
     setState({...state, isLoading: true});
     setTimeout(() => {
       setState({...state, isLoading: false});
+      showToast(successToastRef, 'chats refreshed');
+      // showToast(errorToastRef, 'failed');
     }, 1000);
   };
   return (
@@ -96,6 +105,8 @@ const Chat = ({navigation}) => {
             </View>
           </View>
         </KeyboardAvoidingView>
+        <SuccessToast setRef={(toast) => (successToastRef.current = toast)} />
+        <ErrorToast setRef={(toast) => (errorToastRef.current = toast)} />
       </View>
     </SafeAreaView>
   );
