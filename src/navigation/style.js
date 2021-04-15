@@ -19,8 +19,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   drawer_content_scroll_view: {
-    marginLeft: -12,
-    width: '109.5%',
+    width: '100%',
   },
   drawer_item: {
     borderRadius: 0,
@@ -30,15 +29,13 @@ const styles = StyleSheet.create({
     borderColor: Colors.SHADED_TEXT,
     borderBottomWidth: 2,
     marginVertical: 0,
-    borderLeftWidth: 1,
   },
   exit: {
     backgroundColor: '#bc0707',
     position: 'absolute',
     bottom: 0,
-    marginLeft: -14,
     paddingHorizontal: 12,
-    width: '106.2%',
+    width: '92%',
     borderRadius: 0,
     borderWidth: 0,
   },

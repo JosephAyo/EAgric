@@ -10,6 +10,7 @@ import * as React from 'react';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import {QueryClient, QueryClientProvider} from 'react-query';
 import Screen from './src/navigation/index';
 import {Colors} from './src/style/index';
 const theme = {
@@ -22,13 +23,16 @@ const theme = {
     background: Colors.BACKGROUND,
   },
 };
+const queryClient = new QueryClient();
 const App = () => {
   return (
-    <PaperProvider theme={theme}>
-      <NavigationContainer>
-        <Screen />
-      </NavigationContainer>
-    </PaperProvider>
+    <QueryClientProvider client={queryClient}>
+      <PaperProvider theme={theme}>
+        <NavigationContainer>
+          <Screen />
+        </NavigationContainer>
+      </PaperProvider>
+    </QueryClientProvider>
   );
 };
 
