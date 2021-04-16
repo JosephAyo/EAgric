@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Dimensions} from '../../../style/index';
+import {Colors, Dimensions, Fonts} from '../../../style/index';
 
 const styles = StyleSheet.create({
   container: {
@@ -71,20 +71,44 @@ const styles = StyleSheet.create({
     color: Colors.WHITE,
   },
   more_container: {},
-  more_details_view: {
+  more_details_card: {
+    height: 160,
+    borderRadius: Dimensions.WIDTH * 0.9 * 0.1,
+    paddingHorizontal: 10,
     backgroundColor: Colors.BACKGROUND,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  more_details_view: {
+    flexDirection: 'row',
+  },
+  more_details_view_b: {
+    width: '80%',
   },
   more_item: {
     width: '33.33%',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  more_item_b: {
+    width: '50%',
+    flexDirection: 'row',
+  },
   more_item_description: {width: '100%'},
-  more_value_text: {fontSize: 25, fontWeight: 'bold', textAlign: 'center'},
+  more_item_description_b: {
+    width: '50%',
+  },
+  more_value_text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontFamily: Fonts.ROBOTO_REGULAR,
+  },
   more_description_text: {
     fontSize: 10,
     textAlign: 'center',
     color: Colors.SHADED_TEXT,
+    fontFamily: Fonts.ROBOTO_REGULAR,
   },
   preview_container: {
     flexDirection: 'row',
@@ -103,7 +127,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
   },
-  preview_weather_description: {flex: 2, justifyContent: 'center'},
+  preview_weather_description: {flex: 3, justifyContent: 'center'},
   preview_weather_description_text: {color: Colors.SHADED_TEXT, fontSize: 14},
   preview_view: {flex: 2},
   view_touchable: {
@@ -117,6 +141,12 @@ const styles = StyleSheet.create({
   view_touchable_text: {
     color: Colors.WHITE,
     fontSize: 14,
+  },
+  top_border: {
+    borderTopWidth: 2,
+    borderTopColor: '#918888',
+    marginVertical: 10,
+    width: '95%',
   },
 });
 
