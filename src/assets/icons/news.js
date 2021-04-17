@@ -5,8 +5,10 @@ import {Colors} from '../../style/index';
 
 const size = 22;
 
-const NewsIcon = () => {
-  return <Ionicons name="reader" color={Colors.SECONDARY} size={size} />;
+const NewsIcon = ({color}) => {
+  return (
+    <Ionicons name="reader" color={color || Colors.SECONDARY} size={size} />
+  );
 };
 
 export {NewsIcon};

@@ -11,7 +11,7 @@ import NewsStory from '../screens/NewsStory/NewsStory';
 import DrawerContent from './DrawerContent';
 import styles from './style';
 import {NewsIcon} from '../assets/icons/news';
-import {ChatHomeIcon} from '../assets/icons/chat';
+import {ChatDrawerIcon, ChatHomeIcon} from '../assets/icons/chat';
 import {WeatherHomeIcon} from '../assets/icons/weather';
 import HomeIcon from '../assets/icons/home';
 import {Colors} from '../style/index';
@@ -58,8 +58,8 @@ function MyDrawer() {
       initialRouteName="E-Agric"
       drawerContent={(props) => DrawerContent(props)}
       drawerContentOptions={{
-        activeTintColor: Colors.WHITE,
-        activeBackgroundColor: Colors.PRIMARY,
+        activeTintColor: Colors.PRIMARY,
+        activeBackgroundColor: Colors.WHITE,
         itemStyle: styles.drawer_item,
       }}
       backBehavior={'history'}
@@ -69,7 +69,8 @@ function MyDrawer() {
         component={MyTab}
         options={{
           drawerIcon: ({focused, size, color}) => (
-            <View style={focused ? styles.focused_drawer_item : null}>
+            <View style={styles.drawer_icon_container}>
+              <View style={focused ? styles.focused_drawer_item : null} />
               <HomeIcon color={color} size={25} />
             </View>
           ),
@@ -80,8 +81,9 @@ function MyDrawer() {
         component={Chat}
         options={{
           drawerIcon: ({focused, size, color}) => (
-            <View style={focused ? styles.focused_drawer_item : null}>
-              <ChatHomeIcon color={color} width={25} />
+            <View style={styles.drawer_icon_container}>
+              <View style={focused ? styles.focused_drawer_item : null} />
+              <ChatDrawerIcon color={color} width={25} />
             </View>
           ),
         }}

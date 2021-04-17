@@ -4,7 +4,7 @@ import {
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {BackHandler, SafeAreaView, View} from 'react-native';
+import {BackHandler, SafeAreaView} from 'react-native';
 import styles from './style';
 import PowerIcon from '../assets/icons/power';
 const DrawerContent = (props) => {

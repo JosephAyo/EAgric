@@ -1,10 +1,18 @@
-import React, {useState, useRef, useEffect} from 'react';
-import {SafeAreaView, View, FlatList, RefreshControl, Text} from 'react-native';
+import React, {useRef, useEffect} from 'react';
+import {useIsFocused} from '@react-navigation/native';
+import {
+  SafeAreaView,
+  View,
+  FlatList,
+  RefreshControl,
+  Text,
+  Alert,
+  BackHandler,
+} from 'react-native';
 import Header from '../../components/molecules/Header/Header';
 import StoryPreview from '../../components/organisms/Story/StoryPreview';
 import styles from './style';
 
-import dummyData from '../../assets/dummy_data/news.json';
 import ErrorToast from '../../components/atoms/Toasts/ErrorToast';
 import SuccessToast from '../../components/atoms/Toasts/SuccessToast';
 import {showToast} from '../../helpers/toast';
@@ -12,9 +20,7 @@ import {showToast} from '../../helpers/toast';
 import {useQuery} from 'react-query';
 import {fetchNews} from '../../queries/news';
 const Home = (props) => {
-  const [state, setState] = useState({
-    isLoading: false,
-  });
+  const isFocused = useIsFocused();
 
   const {
     data,
@@ -32,6 +38,28 @@ const Home = (props) => {
 
   const successToastRef = useRef(null);
   const errorToastRef = useRef(null);
+
+  const backAction = () => {
+    Alert.alert('Hold on!', 'Are you sure you want to exit?', [
+      {
+        text: 'Cancel',
+        onPress: () => null,
+        style: 'cancel',
+      },
+      {text: 'YES', onPress: () => BackHandler.exitApp()},
+    ]);
+    return true;
+  };
+
+  useEffect(() => {
+    if (isFocused) {
+      BackHandler.addEventListener('hardwareBackPress', backAction);
+    } else {
+      BackHandler.removeEventListener('hardwareBackPress', backAction);
+    }
+    return () =>
+      BackHandler.removeEventListener('hardwareBackPress', backAction);
+  }, [isFocused]);
 
   useEffect(() => {
     if (isSuccess || isFetchedAfterMount) {

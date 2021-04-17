@@ -1,32 +1,40 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from '../../../style/index';
+import {Colors, Dimensions, Fonts} from '../../../style/index';
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: Dimensions.WIDTH,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: Colors.BORDER_ONE,
-    marginVertical: 10,
-    // elevation: 10,
+    marginVertical: 0,
+    borderBottomWidth: 10,
+    borderBottomColor: Colors.BORDER_TWO,
   },
   panel_image: {
-    width: 290,
-    height: 290,
+    width: Dimensions.WIDTH,
+    height: Dimensions.WIDTH,
   },
   article_title_view: {
-    width: '80%',
+    width: '90%',
   },
   article_title: {
     color: Colors.BLACK,
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: 16,
-    fontWeight: '900',
+    fontFamily: Fonts.ROBOTO_REGULAR,
+    lineHeight: 25,
   },
   main_article: {
-    // alignItems: 'center',
     width: '100%',
   },
+  article_info: {
+    flexDirection: 'row',
+    width: '30%',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  published_at: {fontSize: 14, fontFamily: Fonts.ROBOTO_REGULAR},
   view_less_view: {
     width: '100%',
     alignItems: 'center',

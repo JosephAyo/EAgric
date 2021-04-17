@@ -2,7 +2,9 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from './style';
 
-import ViewMore from '../../../assets/icons/view_more';
+import ViewMoreIcon from '../../../assets/icons/view_more';
+import ClockIcon from '../../../assets/icons/clock';
+import moment from 'moment';
 
 const StoryPreview = ({data, onReadPress}) => {
   return (
@@ -16,12 +18,20 @@ const StoryPreview = ({data, onReadPress}) => {
         }}
       />
       <View style={styles.article_title_view}>
-        <Text style={styles.article_title}>{data.item.title}</Text>
+        <Text style={styles.article_title}>
+          {data.item.title.toUpperCase()}
+        </Text>
+      </View>
+      <View style={styles.article_info}>
+        <ClockIcon />
+        <Text style={styles.published_at}>
+          {moment(data.item.publishedAt).format('DD/MM/YYYY')}
+        </Text>
       </View>
       <TouchableOpacity
         onPress={() => onReadPress(data.item.url)}
         activeOpacity={0.6}>
-        <ViewMore />
+        <ViewMoreIcon />
       </TouchableOpacity>
     </View>
   );

@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Dimensions} from '../../style/index';
+import {Colors, Dimensions, Fonts} from '../../style/index';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,14 +13,48 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   chat_preamble_container: {},
-  chat_preamble: {
+  guideline_item: {
     width: Dimensions.WIDTH * 0.9,
-    height: 100,
-    backgroundColor: Colors.WHITE,
-    borderLeftColor: Colors.PRIMARY,
-    borderLeftWidth: 5,
+    marginVertical: 10,
+  },
+  guidelines_preamble_view: {},
+  guidelines_preamble_text: {
+    color: Colors.LIGHT_TEXT,
+    textAlign: 'justify',
+  },
+  guideline_point: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 35,
     paddingHorizontal: 10,
-    justifyContent: 'center',
+    width: '100%',
+    backgroundColor: Colors.BORDER_TWO,
+  },
+  guideline_point_text_container: {marginLeft: 5},
+  guideline_point_text: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: Fonts.ROBOTO_REGULAR,
+  },
+  goto_chat: {
+    width: Dimensions.WIDTH * 0.9,
+    position: 'absolute',
+    bottom: 148,
+  },
+  goto_chat_btn: {
+    width: 109,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: Colors.PRIMARY,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    alignSelf: 'flex-end',
+  },
+  goto_chat_btn_text: {
+    color: Colors.WHITE,
+    fontSize: 14,
+    fontFamily: Fonts.ROBOTO_REGULAR,
   },
   scroll_view: {
     maxHeight: Dimensions.HEIGHT * 0.68,

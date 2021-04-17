@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   top_border: {
     borderTopWidth: 2,
-    borderTopColor: '#918888',
+    borderTopColor: Colors.BORDER_TWO,
     marginVertical: 10,
     width: '95%',
   },
