@@ -12,6 +12,7 @@ import SuccessToast from '../../components/atoms/Toasts/SuccessToast';
 import {showToast} from '../../helpers/toast';
 import {useQuery} from 'react-query';
 import {fetchAllWeather} from '../../queries/weather';
+import EmptyFlatlist from '../../components/atoms/Empty/EmptyFlatlist';
 const Weather = (props) => {
   const [state, setState] = useState({
     weatherData: {
@@ -129,9 +130,7 @@ const Weather = (props) => {
             />
           }
           ListEmptyComponent={
-            <View>
-              <Text>Empty</Text>
-            </View>
+            <EmptyFlatlist title="weather feed" heightOffset={0.3} />
           }
           contentContainerStyle={styles.contentContainer}
         />

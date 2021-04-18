@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   FlatList,
-  RefreshControl,
   Text,
 } from 'react-native';
 import styles from './style';
@@ -25,6 +24,7 @@ import firestore from '@react-native-firebase/firestore';
 
 import {sendMessage} from '../../services/firebase';
 import {getUser} from '../../helpers/user';
+import EmptyFlatlist from '../../components/atoms/Empty/EmptyFlatlist';
 
 const Chat = ({navigation}) => {
   const [state, setState] = useState({
@@ -54,7 +54,6 @@ const Chat = ({navigation}) => {
       .collection('chats_thread')
       .orderBy('time_sent', 'desc')
       .onSnapshot((documentSnapshot) => {
-        // console.log('User data: ', documentSnapshot.docs);
         setMessages(documentSnapshot.docs);
         setResolve(true);
       });
@@ -75,9 +74,12 @@ const Chat = ({navigation}) => {
   };
 
   const sendMessageHandler = async () => {
-    const sentMessage = await sendMessage(state.text);
-    if (!sentMessage) {
-      showToast(errorToastRef, 'failed to send message');
+    const text = state.text.trim();
+    if (text.length > 0) {
+      const sentMessage = await sendMessage(state.text);
+      if (!sentMessage) {
+        showToast(errorToastRef, 'failed to send message');
+      }
     }
     setState({...state, text: ''});
   };
@@ -105,9 +107,7 @@ const Chat = ({navigation}) => {
           removeClippedSubviews={false}
           inverted={true}
           ListEmptyComponent={
-            <View>
-              <Text>Empty</Text>
-            </View>
+            <EmptyFlatlist title="messages" heightOffset={0.2} isInverted />
           }
         />
         <KeyboardAvoidingView>

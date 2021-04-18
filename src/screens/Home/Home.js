@@ -19,6 +19,7 @@ import {showToast} from '../../helpers/toast';
 
 import {useQuery} from 'react-query';
 import {fetchNews} from '../../queries/news';
+import EmptyFlatlist from '../../components/atoms/Empty/EmptyFlatlist';
 const Home = (props) => {
   const isFocused = useIsFocused();
 
@@ -110,9 +111,7 @@ const Home = (props) => {
             />
           }
           ListEmptyComponent={
-            <View>
-              <Text>Empty</Text>
-            </View>
+            <EmptyFlatlist title="news feed" heightOffset={0.6} />
           }
           contentContainerStyle={styles.contentContainer}
         />

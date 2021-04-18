@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   },
   drawer_content_scroll_view: {
     width: '100%',
-    // backgroundColor: Colors.PRIMARY,
     padding: 0,
   },
   drawer_item: {
@@ -29,7 +28,6 @@ const styles = StyleSheet.create({
     height: 60,
     justifyContent: 'center',
     margin: 0,
-    // backgroundColor: Colors.ALERT,
   },
   exit: {
     position: 'absolute',
@@ -42,8 +40,7 @@ const styles = StyleSheet.create({
   drawer_icon_container: {flexDirection: 'row', alignItems: 'center'},
   focused_drawer_item: {
     borderRightColor: Colors.PRIMARY,
-    borderRightWidth: 10,
-    // paddingLeft: 5,
+    borderRightWidth: 5,
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
     height: 60,
