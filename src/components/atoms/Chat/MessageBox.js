@@ -4,7 +4,7 @@ import {View, Text} from 'react-native';
 import styles from './style';
 
 const MessageBox = ({data, isSent}) => {
-  const {message, time_sent} = data.item;
+  const {text, time_sent} = data.item.data();
   return (
     <View
       style={[
@@ -17,7 +17,7 @@ const MessageBox = ({data, isSent}) => {
           isSent ? styles.dialog_box_sent : styles.dialog_box_received,
         ]}>
         <Text style={styles.dialog_text} selectable={true}>
-          {message}
+          {text}
         </Text>
         <View style={styles.time_sent_view}>
           <Text style={styles.time_sent_text}>

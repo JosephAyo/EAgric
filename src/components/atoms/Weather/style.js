@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   city_name_view_bg: {
     position: 'absolute',
     top: -20,
-    left: 99,
+    left: Dimensions.WIDTH * 0.3,
     right: 0,
     bottom: 0,
   },

@@ -9,7 +9,7 @@ const SuccessToast = ({setRef}) => {
       ref={(toast) => setRef(toast)}
       style={styles.success_toast}
       position="bottom"
-      positionValue={Dimensions.HEIGHT * 0.4}
+      positionValue={Dimensions.HEIGHT * 0.6}
     />
   );
 };

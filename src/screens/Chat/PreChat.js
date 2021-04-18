@@ -34,7 +34,7 @@ const guidelines = [
 ];
 const PreChat = (props) => {
   const onPressHandler = () => {
-    props.navigation.navigate('ChatRoom');
+    props.navigation.navigate('Chat');
   };
   return (
     <SafeAreaView style={[styles.container, styles.chat_preamble_container]}>

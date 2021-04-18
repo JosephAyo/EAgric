@@ -80,7 +80,7 @@ const Weather = (props) => {
     const checkBoardedHandler = () => {
       setState({weatherData: data[0]});
     };
-    if (isSuccess || isFetchedAfterMount) {
+    if ((isSuccess || isFetchedAfterMount) && data) {
       showToast(successToastRef, 'weather fetched');
       checkBoardedHandler();
     }

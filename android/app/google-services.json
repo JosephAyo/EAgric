@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "615136021861",
+    "project_id": "e-agric-e4401",
+    "storage_bucket": "e-agric-e4401.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615136021861:android:2c3997e075ce57fe73e58c",
+        "android_client_info": {
+          "package_name": "com.eagric"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615136021861-lr5bg00vr7d89u5fj9o7evts79bnntg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOyVnHKvh-pY4ije4NsyhHm35n02XPIc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615136021861-lr5bg00vr7d89u5fj9o7evts79bnntg1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

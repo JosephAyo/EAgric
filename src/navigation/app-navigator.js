@@ -41,7 +41,7 @@ function MyTab() {
         }}
       />
       <Tab.Screen
-        name="Chat"
+        name="Guidelines"
         component={PreChat}
         options={{
           tabBarLabel: 'Chat',
@@ -77,7 +77,7 @@ function MyDrawer() {
         }}
       />
       <Drawer.Screen
-        name="ChatRoom"
+        name="Chat"
         component={Chat}
         options={{
           drawerIcon: ({focused, size, color}) => (

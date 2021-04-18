@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   SafeAreaView,
   View,
@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
   FlatList,
   RefreshControl,
+  Text,
 } from 'react-native';
 import styles from './style';
 import {Colors} from '../../style/index';
@@ -15,23 +16,50 @@ import Header from '../../components/molecules/Header/Header';
 
 import SendIcon from '../../assets/icons/send_message';
 
-import ChatDummyData from '../../assets/dummy_data/chat.json';
 import MessageBox from '../../components/atoms/Chat/MessageBox';
 
 import ErrorToast from '../../components/atoms/Toasts/ErrorToast';
 import SuccessToast from '../../components/atoms/Toasts/SuccessToast';
 import {showToast} from '../../helpers/toast';
+import firestore from '@react-native-firebase/firestore';
+
+import {sendMessage} from '../../services/firebase';
+import {getUser} from '../../helpers/user';
 
 const Chat = ({navigation}) => {
   const [state, setState] = useState({
     text: '',
     height: 0,
-    isLoading: false,
   });
+  const [messages, setMessages] = useState([]);
+  const [user, setUser] = useState({});
   const [inputHeight, setInputHeight] = useState(48);
+  const [isResolved, setResolve] = useState(false);
 
   const successToastRef = useRef(null);
   const errorToastRef = useRef(null);
+
+  useEffect(() => {
+    async function fetchUser() {
+      const foundUser = await getUser();
+      if (foundUser) {
+        setUser(foundUser);
+      }
+    }
+    fetchUser();
+  }, []);
+
+  useEffect(() => {
+    const subscriber = firestore()
+      .collection('chats_thread')
+      .orderBy('time_sent', 'desc')
+      .onSnapshot((documentSnapshot) => {
+        // console.log('User data: ', documentSnapshot.docs);
+        setMessages(documentSnapshot.docs);
+        setResolve(true);
+      });
+    return () => subscriber();
+  }, [isResolved]);
 
   const textChangeHandler = (text) => {
     setState({
@@ -46,13 +74,12 @@ const Chat = ({navigation}) => {
     }
   };
 
-  const refreshHandler = () => {
-    setState({...state, isLoading: true});
-    setTimeout(() => {
-      setState({...state, isLoading: false});
-      showToast(successToastRef, 'chats refreshed');
-      // showToast(errorToastRef, 'failed');
-    }, 1000);
+  const sendMessageHandler = async () => {
+    const sentMessage = await sendMessage(state.text);
+    if (!sentMessage) {
+      showToast(errorToastRef, 'failed to send message');
+    }
+    setState({...state, text: ''});
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -60,14 +87,16 @@ const Chat = ({navigation}) => {
         screenName="CHAT"
         isBack={true}
         navigation={navigation}
-        canRefresh
-        onTriggerRefresh={() => refreshHandler()}
+        canRefresh={false}
       />
       <View style={styles.top_content}>
         <FlatList
-          data={ChatDummyData}
+          data={messages}
           renderItem={(item) => (
-            <MessageBox data={item} isSent={item.item.sender_id === '23fdr'} />
+            <MessageBox
+              data={item}
+              isSent={item.item.data().user_id === user?._id}
+            />
           )}
           keyExtractor={(item, index) => index}
           showsVerticalScrollIndicator={false}
@@ -75,11 +104,10 @@ const Chat = ({navigation}) => {
           contentContainerStyle={styles.contentContainer}
           removeClippedSubviews={false}
           inverted={true}
-          refreshControl={
-            <RefreshControl
-              refreshing={state.isLoading}
-              onRefresh={() => refreshHandler()}
-            />
+          ListEmptyComponent={
+            <View>
+              <Text>Empty</Text>
+            </View>
           }
         />
         <KeyboardAvoidingView>
@@ -99,7 +127,9 @@ const Chat = ({navigation}) => {
               />
             </View>
             <View style={styles.send_icon_view}>
-              <TouchableOpacity activeOpacity={0.6}>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                onPress={() => sendMessageHandler()}>
                 <SendIcon />
               </TouchableOpacity>
             </View>

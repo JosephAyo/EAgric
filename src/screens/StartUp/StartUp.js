@@ -4,9 +4,11 @@ import {StatusBar} from 'react-native';
 import styles from './style';
 import {Colors} from '../../style/index';
 import RNBootSplash from 'react-native-bootsplash';
+import {boardApp} from '../../helpers/board';
 
 const StartUp = ({navigation}) => {
-  const checkBoardedHandler = useCallback(() => {
+  const checkBoardedHandler = useCallback(async () => {
+    await boardApp();
     navigation.navigate('Drawer');
   }, [navigation]);
   useEffect(() => {
