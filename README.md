@@ -1,7 +1,7 @@
 <h1> EAgric </h1>
 <br><br>
 
-EAgric is an agricultural app-based tool designed for local farmers to help in the process of their farming or agricultural inquiries.
+EAgric is an android agricultural app-based tool designed for local farmers to help in the process of their farming or agricultural inquiries.
 
 <br><br>
 
