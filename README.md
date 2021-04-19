@@ -25,7 +25,7 @@ The EAgric app was designed with the following features:
 
 <br>
 
-<h2> Chat Environment <h2>
+<h2> Chat Environment </h2>
 <p>   This feature is an enviroment where users can chat and ask problems pertaining to issues faced during the process of crop cultivation or other agricultural related questions.</p>
 
 <br><br>
