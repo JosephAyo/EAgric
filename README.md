@@ -21,12 +21,12 @@ The EAgric app was designed with the following features:
 <br>
 
 <h2>Weather Report</h2>
-<h4>   This feature provides updates on different weather changes at different locations in the state allowing farmers to determine the better time for cultivation of certain crops or products</h4>
+<h4>   This feature provides updates on different weather changes at different locations in the state allowing farmers to determine the better time for cultivation of certain crops or products.</h4>
 
 <br>
 
 <h2> Chat Environment <h2>
-<h4>   This feature is an enviroment where users can chat and ask problems pertaining to issues faced during the process of crop cultivation or other agricultural related questions</h4>
+<h4>   This feature is an enviroment where users can chat and ask problems pertaining to issues faced during the process of crop cultivation or other agricultural related questions.</h4>
 
 <br><br>
 
