@@ -17,6 +17,8 @@ target 'EAgric' do
   pod 'react-native-webview', :path => '../node_modules/react-native-webview'
 
 
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
   target 'EAgricTests' do
     inherit! :complete
     # Pods for testing

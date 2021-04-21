@@ -64,7 +64,6 @@ const Weather = (props) => {
   const {
     data,
     refetch,
-    isLoading,
     isFetching,
     isError,
     isLoadingError,
@@ -78,12 +77,12 @@ const Weather = (props) => {
   const errorToastRef = useRef(null);
 
   useEffect(() => {
-    const checkBoardedHandler = () => {
+    const setScreenState = () => {
       setState({weatherData: data[0]});
     };
-    if ((isSuccess || isFetchedAfterMount) && data) {
+    if ((isSuccess || isFetchedAfterMount) && data && !isFetching) {
       showToast(successToastRef, 'weather fetched');
-      checkBoardedHandler();
+      setScreenState();
     }
   }, [isSuccess, isFetching, isFetchedAfterMount, data]);
 
@@ -125,7 +124,7 @@ const Weather = (props) => {
           showsHorizontalScrollIndicator={false}
           refreshControl={
             <RefreshControl
-              refreshing={isLoading || isFetching}
+              refreshing={isFetching}
               onRefresh={() => refreshHandler()}
             />
           }
