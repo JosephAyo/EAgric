@@ -54,11 +54,11 @@ Like every commonly used app, this app can be downloaded and installed directly 
 <p> The app according to its features made use of 3 major API keys: </p>
 <br>
 
-<p> NEWS: <kbd>newsapi</kbd> <a href="https://newsapi.org/docs"> See documentation here </a> </p>
+<p> NEWS: <kbd>newsapi</kbd> <a href="https://newsapi.org/docs"> See Documentation here </a> </p>
 <br>
-<p> WEATHER: <kbd>openweathermap</kbd> for weather data <a href="https://openweathermap.org/api"> See documentation here </a> and <kbd>openstreetmap</kbd> for current city accuracy <a href="https://www.openstreetmap.org/help"> See documentation here </a> </p>
+<p> WEATHER: <kbd>openweathermap</kbd> for weather data <a href="https://openweathermap.org/api"> See Documentation here </a> and <kbd>openstreetmap</kbd> for current city accuracy <a href="https://www.openstreetmap.org/help"> See Documentation here </a> </p>
 <br>
-<p> CHAT: <kbd>firestore database service</kbd> <a href="https://firebase.google.com/docs/firestore/reference/rest"> See documentation here </a> </p> 
+<p> CHAT: <kbd>firestore database service</kbd> <a href="https://firebase.google.com/docs/firestore/reference/rest"> See Documentation here </a> </p> 
 
 <br><br>
 
