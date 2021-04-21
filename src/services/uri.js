@@ -1,4 +1,5 @@
 const BASE_URL = {
+  OPEN_MAP: 'https://nominatim.openstreetmap.org/reverse?format=json',
   WEATHER:
     'https://api.openweathermap.org/data/2.5/weather?appid=ef06d3ce2d2d341a31055d66b9ac4742&units=metric',
   NEWS:

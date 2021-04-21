@@ -5,7 +5,6 @@ import {
   View,
   FlatList,
   RefreshControl,
-  Text,
   Alert,
   BackHandler,
 } from 'react-native';
@@ -20,13 +19,13 @@ import {showToast} from '../../helpers/toast';
 import {useQuery} from 'react-query';
 import {fetchNews} from '../../queries/news';
 import EmptyFlatlist from '../../components/atoms/Empty/EmptyFlatlist';
+import {getCurrentPosition} from '../../services/geolocation';
 const Home = (props) => {
   const isFocused = useIsFocused();
 
   const {
     data,
     refetch,
-    isLoading,
     isFetching,
     isError,
     isLoadingError,
@@ -53,11 +52,15 @@ const Home = (props) => {
   };
 
   useEffect(() => {
+    async function handleGetPos() {
+      await getCurrentPosition();
+    }
     if (isFocused) {
       BackHandler.addEventListener('hardwareBackPress', backAction);
     } else {
       BackHandler.removeEventListener('hardwareBackPress', backAction);
     }
+    handleGetPos();
     return () =>
       BackHandler.removeEventListener('hardwareBackPress', backAction);
   }, [isFocused]);
@@ -106,7 +109,7 @@ const Home = (props) => {
           showsHorizontalScrollIndicator={false}
           refreshControl={
             <RefreshControl
-              refreshing={isLoading || isFetching}
+              refreshing={isFetching}
               onRefresh={() => refreshHandler()}
             />
           }
