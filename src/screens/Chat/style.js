@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
   },
   text_input: {
     color: Colors.WHITE,
+    minHeight: 48,
   },
   send_icon_view: {},
   contentContainer: {

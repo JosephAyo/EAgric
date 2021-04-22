@@ -68,15 +68,15 @@ const Chat = ({navigation}) => {
   };
   const contentSizeChangeHandler = (event) => {
     const {height} = event.nativeEvent.contentSize;
-    if (height > 39 && height < 107) {
+    if (height <= 20 * 5) {
       setInputHeight(event.nativeEvent.contentSize.height);
     }
   };
 
   const sendMessageHandler = async () => {
     const text = state.text.trim();
-    setState({...state, text: ''});
     if (text.length > 0) {
+      setState({...state, text: ''});
       const sentMessage = await sendMessage(text);
       if (!sentMessage) {
         showToast(errorToastRef, 'failed to send message');
@@ -116,7 +116,7 @@ const Chat = ({navigation}) => {
               <TextInput
                 placeholder="Say something..."
                 value={state.text}
-                style={[styles.text_input, {height: inputHeight}]}
+                style={[styles.text_input, {height: Math.max(48, inputHeight)}]}
                 placeholderTextColor={Colors.SHADED_TEXT}
                 onChangeText={(text) => {
                   textChangeHandler(text);
