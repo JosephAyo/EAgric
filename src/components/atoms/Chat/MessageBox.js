@@ -4,7 +4,7 @@ import {View, Text} from 'react-native';
 import styles from './style';
 
 const MessageBox = ({data, isSent}) => {
-  const {text, time_sent} = data.item.data();
+  const {text, time_sent, username} = data.item.data();
   return (
     <View
       style={[
@@ -16,6 +16,9 @@ const MessageBox = ({data, isSent}) => {
           styles.dialog_box,
           isSent ? styles.dialog_box_sent : styles.dialog_box_received,
         ]}>
+        <View style={styles.username_view}>
+          <Text style={styles.username_text}>{username || 'anon'}</Text>
+        </View>
         <Text style={styles.dialog_text} selectable={true}>
           {text}
         </Text>

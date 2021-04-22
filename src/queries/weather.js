@@ -19,7 +19,10 @@ const cities = [
 
 const fetchAllWeather = async () => {
   const defaultCity = await getDefaultCity();
-  const defaultCityName = await getAccurateCityName(defaultCity.coordinates);
+  let defaultCityName = await getAccurateCityName(defaultCity.coordinates);
+  if (!defaultCityName) {
+    defaultCityName = 'akure';
+  }
   let subsequentRequests = cities
     .filter((city) => city !== defaultCityName.toLowerCase())
     .map((city) => fetchWeatherByCityName(city));

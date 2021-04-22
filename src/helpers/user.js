@@ -10,4 +10,16 @@ const getUser = async () => {
   }
 };
 
-export {getUser};
+const setChatUsername = async (username) => {
+  try {
+    const user = await AsyncStorage.getItem('eagric_user');
+    let modifiedUser = JSON.parse(user);
+    modifiedUser.username = username;
+    await AsyncStorage.setItem('eagric_user', JSON.stringify(modifiedUser));
+    return true;
+  } catch (error) {
+    console.log('app boarding error', error);
+    return null;
+  }
+};
+export {getUser, setChatUsername};

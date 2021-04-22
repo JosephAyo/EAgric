@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     maxWidth: 280,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-    paddingVertical: 10,
+    paddingVertical: 5,
     paddingHorizontal: 10,
   },
   dialog_box_sent: {
@@ -30,6 +30,14 @@ const styles = StyleSheet.create({
   },
   dialog_text: {
     color: Colors.WHITE,
+  },
+  username_view: {
+    alignItems: 'flex-start',
+  },
+  username_text: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: Colors.BORDER_TWO,
   },
   time_sent_view: {
     alignItems: 'flex-end',

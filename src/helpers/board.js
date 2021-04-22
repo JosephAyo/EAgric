@@ -9,7 +9,7 @@ const boardApp = async () => {
     }
     const user = {
       _id: keygenerator._(),
-      username: 'Ayo',
+      username: 'anon' + keygenerator.number({length: 4}),
     };
     await AsyncStorage.setItem('eagric_user', JSON.stringify(user));
   } catch (error) {

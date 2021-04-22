@@ -16,6 +16,8 @@ import {WeatherHomeIcon} from '../assets/icons/weather';
 import HomeIcon from '../assets/icons/home';
 import {Colors} from '../style/index';
 import StartUp from '../screens/StartUp/StartUp';
+import SettingsIcon from '../assets/icons/settings';
+import Settings from '../screens/Settings/Settings';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -84,6 +86,18 @@ function MyDrawer() {
             <View style={styles.drawer_icon_container}>
               <View style={focused ? styles.focused_drawer_item : null} />
               <ChatDrawerIcon color={color} width={25} />
+            </View>
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          drawerIcon: ({focused, size, color}) => (
+            <View style={styles.drawer_icon_container}>
+              <View style={focused ? styles.focused_drawer_item : null} />
+              <SettingsIcon color={color} size={25} />
             </View>
           ),
         }}
