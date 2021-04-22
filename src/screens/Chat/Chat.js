@@ -75,13 +75,13 @@ const Chat = ({navigation}) => {
 
   const sendMessageHandler = async () => {
     const text = state.text.trim();
+    setState({...state, text: ''});
     if (text.length > 0) {
-      const sentMessage = await sendMessage(state.text);
+      const sentMessage = await sendMessage(text);
       if (!sentMessage) {
         showToast(errorToastRef, 'failed to send message');
       }
     }
-    setState({...state, text: ''});
   };
   return (
     <SafeAreaView style={styles.container}>
